@@ -12,7 +12,17 @@ class CidadesService {
     }
 
     async readInsidence(id: string) {
-        return `read insidence ${id}`;
+        const query = `
+            SELECT i.*
+            FROM incidencias i
+            JOIN cidades c ON ST_Contains(i.geom, c.geom)
+            WHERE c.id = ${id};
+        `
+        const result = await pool.query(query);
+        if (result.rows.length === 0) {
+            throw new Error("No incidences found for the given city ID");
+        }
+        return result.rows;
     }
 }
 
