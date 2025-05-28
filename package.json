@@ -1,9 +1,9 @@
 {
-  "name": "template-express",
+  "name": "postgree",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node dist/index.js",
+    "start": "ts-node ./src/index.ts",
     "load": "ts-node src/scripts/load.ts",
     "build": "tsc",
     "dev": "ts-node ./src/index.ts"
