@@ -1,6 +1,14 @@
+import pool from "../database/Pool";
+
 class CidadesService {
     async getAll() {
-        return "read all"
+        const query = `
+            SELECT *
+            FROM cidades
+            ORDER BY nome;
+        `
+        const result = await pool.query(query)
+        return result.rows;
     }
 
     async readInsidence(id: string) {

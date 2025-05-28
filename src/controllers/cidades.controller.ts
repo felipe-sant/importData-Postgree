@@ -12,7 +12,7 @@ class CidadesController {
     async getAll(_: Request, res: Response) {
         try {
             const result = await this.cidadeService.getAll();
-            res.status(200).json({ result });
+            res.status(200).json(result);
         } catch (error: any) {
             res.status(500).json({ message: error.message });
         }
